@@ -66,50 +66,82 @@ const vowelChecker = function (x) {
 // vowelChecker("o");
 // vowelChecker("u");
 
-const isAnagram = function (string1, string2) {
-  let val1 = string1.toLowerCase();
-  let val2 = string2.toLowerCase();
-  let string1Arr = val1.split("");
-  let string2Arr = val2.split("");
-  let isAnagram = true;
-  let sortVal1;
-  let sortVal2;
-  for (let i = 0; i < string1Arr.length; i++) {
-    for (let j = i + 1; j < string1Arr.length; j++) {
-      if (string1Arr[i] > string1Arr[j]) {
-        sortVal1 = string1Arr[i];
-        string1Arr[i] = string1Arr[j];
-        string1Arr[j] = sortVal1;
-      }
-    }
-    for (let i = 0; i < string2Arr.length; i++) {
-      for (let j = i + 1; j < string2Arr.length; j++) {
-        if (string2Arr[i] > string2Arr[j]) {
-          sortVal2 = string2Arr[i];
-          string2Arr[i] = string2Arr[j];
-          string2Arr[j] = sortVal2;
-        }
-      }
-    }
-  }
-  string1Arr.join("");
-  string2Arr.join("");
+// Create a function that accepts two strings, then determines whether
+//  or not the first string is an anagram of the second string by returning a boolean.
 
-  for (let k = 0; k < string1Arr.length; k++) {
-    if (string1Arr[k] === string2Arr[k]) {
-      console.log(string1Arr[k], "&", string2Arr[k], "*");
-      isAnagram = true;
-    } else {
-      isAnagram = false;
-    }
+const specialCase = function (string1) {
+  const specialCases = [",", ".", "/", "?", "]", "[", "{", "}", "+", " "];
+  let newString1;
+  for (let i = 0; i < string1.length; i++) {
+    newString1 = string1.replaceAll(specialCases[i], "");
   }
-  console.log(
-    `both strings ${isAnagram ? "are anagrams" : "are not anagrams"}`
-  );
+  return newString1;
 };
 
+const isAnagram = function (string1, string2) {
+  let isA;
+  const stringIn1 = string1.toLowerCase().split("").sort().join("");
+  const stringIn2 = string2.toLowerCase().split("").sort().join("");
+  specialCase(stringIn1);
+  specialCase(stringIn2);
+  for (let i = 0; i < string1.length; i++) {
+    console.log(stringIn1);
+    console.log(stringIn2);
+    if (stringIn1 === stringIn2) {
+      isA = true;
+    } else {
+      isA = false;
+    }
+  }
+  console.log(`Anagram: ${isA}`);
+};
 isAnagram("So dark the con of man", "Madonna of the Rocks");
 // isAnagram("Things are good", "Dogs eat ants");
+// Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
+
+const getGCD = function (x, y) {
+  if (y === 0) {
+    console.log(x);
+  } else {
+    let num = y;
+    y = x % y;
+    x = num;
+    getGCD(x, y);
+  }
+};
+
+// getGCD(336, 360);
+// getGCD(78, 126);
+
+// Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
+
+const car = {
+  make: "Ram",
+  model: "Big Horn",
+  year: 2016,
+  mileage: 160,
+  color: "Silver",
+  driveToWork: function (x) {
+    const newMileage = this.mileage + x;
+    console.log(`you started with ${this.mileage} now you have ${newMileage}`);
+  },
+  driveAroundTheWorld: function () {
+    const newMileage = this.mileage + 100000;
+    console.log(`you started with ${this.mileage} now you have ${newMileage}`);
+  },
+  runErrands: function (numberOfErrands) {
+    const newMileage = this.mileage + 10 * numberOfErrands;
+    console.log(
+      `you started with ${this.mileage} now you have ${newMileage} after visiting ${numberOfErrands} places`
+    );
+  },
+};
+
+// car.driveToWork(100);
+// car.driveAroundTheWorld();
+// car.runErrands(100);
+
+// Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
 
 /* ******************************************************* */
 // Create a function that takes in an Array of numbers
