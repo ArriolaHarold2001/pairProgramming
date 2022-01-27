@@ -69,25 +69,28 @@ const vowelChecker = function (x) {
 // Create a function that accepts two strings, then determines whether
 //  or not the first string is an anagram of the second string by returning a boolean.
 
-const specialCase = function (string1) {
-  const specialCases = [",", ".", "/", "?", "]", "[", "{", "}", "+", " "];
-  let newString1;
-  for (let i = 0; i < string1.length; i++) {
-    newString1 = string1.replaceAll(specialCases[i], "");
-  }
-  return newString1;
-};
+// const specialCase = function (string1) {
+//   const specialCases = [",", ".", "/", "?", "]", "[", "{", "}", "+", " "];
+//   let newString1Arr;
+//   let counter;
+//   for (let i = 0; i < string1.length; i++) {
+//     string1.replaceAll(specialCases[i], "");
+//     // newString1Arr[counter] = string1[0];
+//   }
+//   return string1;
+// };
 
 const isAnagram = function (string1, string2) {
   let isA;
-  const stringIn1 = string1.toLowerCase().split("").sort().join("");
-  const stringIn2 = string2.toLowerCase().split("").sort().join("");
-  specialCase(stringIn1);
-  specialCase(stringIn2);
+  string1 = string1.replace(/\s+/g, "");
+  string2 = string2.replace(/\s+/g, "");
+  string1 = string1.toLowerCase().split("").sort().join("");
+  string2 = string2.toLowerCase().split("").sort().join("");
+  // console.log(string1, "*****");
+  // console.log(string2, "@@@@@");
+
   for (let i = 0; i < string1.length; i++) {
-    console.log(stringIn1);
-    console.log(stringIn2);
-    if (stringIn1 === stringIn2) {
+    if (string1[i] === string2[i]) {
       isA = true;
     } else {
       isA = false;
@@ -96,7 +99,7 @@ const isAnagram = function (string1, string2) {
   console.log(`Anagram: ${isA}`);
 };
 isAnagram("So dark the con of man", "Madonna of the Rocks");
-// isAnagram("Things are good", "Dogs eat ants");
+isAnagram("Things are good", "Dogs eat ants");
 // Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
 
 const getGCD = function (x, y) {
@@ -141,21 +144,21 @@ const car = {
 // car.driveAroundTheWorld();
 // car.runErrands(100);
 
-// Write a function that takes in a string and returns a boolean value whether or not the string contains a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
+// Write a function that takes in a string and returns a boolean value whether or not the string contains
+//a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
 
-/* ******************************************************* */
-// Create a function that takes in an Array of numbers
-// example: let nums = [1,2,3,4,5,6,7]
-// Inside the function do a for loop on the passed in array
-// Inside the for loop have a condition that checks to see if the number 5 exists in the array and console log it if it does.
-// Finally call that function with the passed in array.
+const matchingBrackets = function (string1) {
+  string1 = string1.replace(/[a-z]/gi, "");
+  string1 = string1.replace(/\s+/g, "");
+  let isTrue;
 
-// const numCheck = function (numArr) {
-//   for (let i = 0; i < numArr.length; i++) {
-//     if (numArr[i] === 5) {
-//       console.log(numArr[i]);
-//     }
-//   }
-// };
-
-// numCheck([1, 2, 3, 4, 5, 6, 7]);
+  if (string1 === "{}" || string1 === "[]" || string1 === "()") {
+    isTrue = true;
+  } else {
+    isTrue = false;
+  }
+  console.log(`Matching ${isTrue}`);
+};
+// matchingBrackets("[Hello]");
+// matchingBrackets("{Hello}");
+// matchingBrackets("(Hello)");
