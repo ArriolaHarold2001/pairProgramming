@@ -1,5 +1,5 @@
 "use strict";
-// console.log("+++++++++++++++ EVEN ODD SORT");
+console.log("+++++++++++++++ EVEN ODD SORT");
 let inputArray1 = [2, 4, 7, 11, 15, 16];
 let evenArr = [];
 let oddArr = [];
@@ -16,13 +16,13 @@ function evenOdd(emptyArray) {
       oddCounter++;
     }
   }
-  // console.log(evenArr, "EVEN");
-  // console.log(oddArr, "ODD");
+  console.log(evenArr, "EVEN");
+  console.log(oddArr, "ODD");
 }
 
 evenOdd(inputArray1);
 
-// console.log("+++++++++++++++ PRIMES");
+console.log("+++++++++++++++ PRIMES");
 
 const isPrime = function (primes) {
   let newArr = [];
@@ -41,8 +41,10 @@ const isPrime = function (primes) {
   console.log(newArr);
 };
 
-// isPrime([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-// isPrime([10, 18, 19, 29, 33, 35, 47, 66, 83]);
+isPrime([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+isPrime([10, 18, 19, 29, 33, 35, 47, 66, 83]);
+
+console.log("+++++++++++++++ VOWEL CHECKER");
 
 const vowelChecker = function (x) {
   let vowelArray = ["a", "e", "i", "o", "u"];
@@ -58,27 +60,17 @@ const vowelChecker = function (x) {
   }
   console.log(`${val} ${isVowel ? "is a vowel" : "is not a vowel"}`);
 };
-// vowelChecker("B");
-// vowelChecker("a");
-// vowelChecker("e");
-// vowelChecker("i");
-// vowelChecker("F");
-// vowelChecker("o");
-// vowelChecker("u");
+vowelChecker("B");
+vowelChecker("a");
+vowelChecker("e");
+vowelChecker("i");
+vowelChecker("F");
+vowelChecker("o");
+vowelChecker("u");
 
 // Create a function that accepts two strings, then determines whether
 //  or not the first string is an anagram of the second string by returning a boolean.
-
-// const specialCase = function (string1) {
-//   const specialCases = [",", ".", "/", "?", "]", "[", "{", "}", "+", " "];
-//   let newString1Arr;
-//   let counter;
-//   for (let i = 0; i < string1.length; i++) {
-//     string1.replaceAll(specialCases[i], "");
-//     // newString1Arr[counter] = string1[0];
-//   }
-//   return string1;
-// };
+console.log("+++++++++++++++ ANAGRAM CHECK");
 
 const isAnagram = function (string1, string2) {
   let isA;
@@ -86,8 +78,6 @@ const isAnagram = function (string1, string2) {
   string2 = string2.replace(/\s+/g, "");
   string1 = string1.toLowerCase().split("").sort().join("");
   string2 = string2.toLowerCase().split("").sort().join("");
-  // console.log(string1, "*****");
-  // console.log(string2, "@@@@@");
 
   for (let i = 0; i < string1.length; i++) {
     if (string1[i] === string2[i]) {
@@ -102,6 +92,8 @@ isAnagram("So dark the con of man", "Madonna of the Rocks");
 isAnagram("Things are good", "Dogs eat ants");
 // Write a function that takes in two numbers and determines the largest positive integer that divides the two numbers without a remainder.
 
+console.log("+++++++++++++++ GREATEST COMMON DENOMINATOR ");
+
 const getGCD = function (x, y) {
   if (y === 0) {
     console.log(x);
@@ -113,10 +105,12 @@ const getGCD = function (x, y) {
   }
 };
 
-// getGCD(336, 360);
-// getGCD(78, 126);
+getGCD(336, 360);
+getGCD(78, 126);
 
 // Create a car object with the items: Make, Model, Year, Milage, and Color. Then create 3 methods in the object; A driveToWork method, driveAroundTheWorld method, and runErrands method. Each of these methods should affect the car’s mileage adding to it each time and console logging the old mileage and the new mileage.
+
+console.log("+++++++++++++++ CAR OBJECT");
 
 const car = {
   make: "Ram",
@@ -140,12 +134,13 @@ const car = {
   },
 };
 
-// car.driveToWork(100);
-// car.driveAroundTheWorld();
-// car.runErrands(100);
+car.driveToWork(100);
+car.driveAroundTheWorld();
+car.runErrands(100);
 
 // Write a function that takes in a string and returns a boolean value whether or not the string contains
 //a pair of matching brackets ({}, [], ()). These brackets must be nested appropriately in order to return a true value
+console.log("+++++++++++++++ MATCHING BRACKETS");
 
 const matchingBrackets = function (string1) {
   string1 = string1.replace(/[a-z]/gi, "");
@@ -159,6 +154,6 @@ const matchingBrackets = function (string1) {
   }
   console.log(`Matching ${isTrue}`);
 };
-// matchingBrackets("[Hello]");
-// matchingBrackets("{Hello}");
-// matchingBrackets("(Hello)");
+matchingBrackets("[Hello]");
+matchingBrackets("{Hello}");
+matchingBrackets("(Hello)");
